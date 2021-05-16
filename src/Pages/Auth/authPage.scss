@@ -1,0 +1,83 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  img {
+    width: 900px;
+  }
+
+  .authWrapper {
+    border: solid 4px #44cccc;
+    border-radius: 25px;
+    background-color: #fafbfb;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.671),
+      -2px -2px 10px rgba(0, 0, 0, 0.514);
+    height: 50%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .authForm {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      height: 100%;
+      justify-content: space-around;
+      align-items: center;
+      .authFormInput {
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        input {
+          width: 500px;
+          padding: 15px;
+          border-radius: 25px;
+          padding-left: 20px;
+          font-size: 20px;
+          &:focus {
+            outline: none;
+            background-color: #fffff3;
+          }
+        }
+
+        label {
+          font-size: 25px;
+          margin-bottom: 15px;
+        }
+      }
+
+      .authSubmit {
+        padding: 10px 15px;
+        font-size: 28px;
+        margin: 5px 0;
+        border: none;
+        background-color: #44cccc;
+        color: white;
+        font-family: sans-serif;
+        border-radius: 15px;
+        cursor: pointer;
+
+        &:focus {
+          outline: none;
+        }
+
+        &:active {
+          transform: scale(0.98);
+        }
+      }
+
+      .authToggleQuery {
+        font-size: 20px;
+
+        #loginToggle {
+          cursor: pointer;
+          color: #44cccc;
+          font-size: 22px;
+        }
+      }
+    }
+  }
+}
