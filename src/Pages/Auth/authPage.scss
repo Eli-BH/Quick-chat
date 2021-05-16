@@ -81,3 +81,206 @@
     }
   }
 }
+
+@media (max-width: 1030px) {
+  .container {
+    flex-direction: column;
+    overflow: hidden;
+
+    img {
+      width: 300px;
+      position: absolute;
+      top: -60px;
+      z-index: -1;
+    }
+    .authWrapper {
+      width: 90%;
+      height: 60%;
+
+      .authForm {
+        width: 100%;
+        justify-content: space-evenly;
+
+        .authFormInput {
+          input {
+            width: 550px;
+            padding: 5px;
+            font-size: 24px;
+          }
+
+          label {
+            font-size: 22px;
+          }
+        }
+
+        .authSubmit {
+          padding: 5px 10px;
+          font-size: 32px;
+        }
+
+        .authToggleQuery {
+          font-size: 22px;
+
+          #loginToggle {
+            cursor: pointer;
+            color: #44cccc;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .container {
+    flex-direction: column;
+    overflow: hidden;
+
+    img {
+      width: 300px;
+      position: absolute;
+      top: -60px;
+      z-index: -1;
+    }
+    .authWrapper {
+      width: 90%;
+      height: 60%;
+
+      .authForm {
+        width: 100%;
+        justify-content: space-evenly;
+
+        .authFormInput {
+          input {
+            width: 250px;
+            padding: 5px;
+            font-size: 12px;
+          }
+
+          label {
+            font-size: 12px;
+          }
+        }
+
+        .authSubmit {
+          padding: 5px 10px;
+          font-size: 20px;
+        }
+
+        .authToggleQuery {
+          font-size: 16px;
+
+          #loginToggle {
+            cursor: pointer;
+            color: #44cccc;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 361px) {
+  .container {
+    flex-direction: column;
+    overflow: hidden;
+
+    img {
+      width: 300px;
+      position: absolute;
+      top: -60px;
+      z-index: -1;
+    }
+    .authWrapper {
+      width: 90%;
+      height: 65%;
+      margin-top: 110px;
+
+      .authForm {
+        width: 100%;
+        justify-content: space-evenly;
+
+        .authFormInput {
+          input {
+            width: 250px;
+            padding: 5px;
+            font-size: 12px;
+          }
+
+          label {
+            font-size: 12px;
+            margin-bottom: 8px;
+          }
+        }
+
+        .authSubmit {
+          padding: 5px 10px;
+          font-size: 20px;
+        }
+
+        .authToggleQuery {
+          font-size: 16px;
+
+          #loginToggle {
+            cursor: pointer;
+            color: #44cccc;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 321px) {
+  .container {
+    flex-direction: column;
+    overflow: hidden;
+
+    img {
+      width: 300px;
+      position: absolute;
+      top: -60px;
+      z-index: -1;
+    }
+    .authWrapper {
+      width: 90%;
+      height: 65%;
+      margin-top: 110px;
+
+      .authForm {
+        width: 100%;
+        justify-content: space-evenly;
+
+        .authFormInput {
+          input {
+            width: 250px;
+            padding: 5px;
+            font-size: 12px;
+          }
+
+          label {
+            font-size: 12px;
+          }
+        }
+
+        .authSubmit {
+          padding: 5px 10px;
+          font-size: 16px;
+        }
+
+        .authToggleQuery {
+          font-size: 12px;
+
+          #loginToggle {
+            cursor: pointer;
+            color: #44cccc;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}
