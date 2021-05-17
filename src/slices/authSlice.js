@@ -5,7 +5,7 @@ import axios from "axios";
 const initialState = {
   loading: false,
   hasError: false,
-  userToken: {},
+  userToken: "",
 };
 
 const authSlice = createSlice({
@@ -38,6 +38,11 @@ const authSlice = createSlice({
       state.loading = false;
       state.hasError = true;
     },
+    logout: (state) => {
+      state.loading = false;
+      state.hasError = false;
+      state.userToken = "";
+    },
   },
 });
 
@@ -49,6 +54,7 @@ export const {
   loginUser,
   loginUserFailure,
   loginUserSuccess,
+  logout,
 } = authSlice.actions;
 
 //A selector
@@ -64,9 +70,12 @@ export function registerNewUser(userInfo) {
     dispatch(registerUser());
 
     try {
-      const { data } = axios.post("http://localhost:3001/api/auth/register");
+      const res = await axios.post(
+        "http://localhost:3001/api/auth/register",
+        userInfo
+      );
 
-      dispatch(registerUserSuccess(data));
+      dispatch(registerUserSuccess(res.data));
     } catch (error) {
       dispatch(registerUserFailure());
     }
@@ -79,8 +88,11 @@ export function loginExistingUser(userInfo) {
     dispatch(loginUser());
 
     try {
-      const { data } = axios.post("http://localhost:3001/api/auth/login");
-      dispatch(loginUserSuccess(data));
+      const res = await axios.post(
+        "http://localhost:3001/api/auth/login",
+        userInfo
+      );
+      dispatch(loginUserSuccess(res.data));
     } catch (error) {
       dispatch(loginUserFailure());
     }

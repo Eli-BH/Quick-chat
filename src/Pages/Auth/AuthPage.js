@@ -17,16 +17,15 @@ const AuthPage = () => {
   const handleRegister = (e) => {
     e.preventDefault();
 
-    if (password.current.value !== confirmPassword.current.value) {
-      password.current.setCustomValidity("Passwords do not match!");
-    } else {
+    if (password.current.value === confirmPassword.current.value) {
       const userData = {
         email: email.current.value,
         username: username.current.value,
         password: password.current.value,
       };
-
       dispatch(registerNewUser(userData));
+    } else {
+      alert("passwords do not match");
     }
   };
 
