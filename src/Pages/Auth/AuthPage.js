@@ -1,13 +1,51 @@
 import "./authPage.scss";
-import { useState } from "react";
+
+import { useState, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { registerNewUser, loginExistingUser } from "../../slices/authSlice";
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
+
+  const email = useRef();
+  const username = useRef();
+  const password = useRef();
+  const confirmPassword = useRef();
+
+  const dispatch = useDispatch();
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    if (password.current.value !== confirmPassword.current.value) {
+      password.current.setCustomValidity("Passwords do not match!");
+    } else {
+      const userData = {
+        email: email.current.value,
+        username: username.current.value,
+        password: password.current.value,
+      };
+
+      dispatch(registerNewUser(userData));
+    }
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    const userData = {
+      email: email.current.value,
+      password: password.current.value,
+    };
+
+    dispatch(loginExistingUser(userData));
+  };
+
   return isLogin ? (
     <div className="container">
       <img src="/QuickChat.png" alt="QuickChat" />
       <div className="authWrapper">
-        <form className="authForm">
+        <form className="authForm" onSubmit={handleLogin}>
           <div className="authFormInput">
             <label htmlFor="LogEmail" aria-readonly="true">
               Email: &nbsp;
@@ -18,6 +56,7 @@ const AuthPage = () => {
               id="LogEmail"
               placeholder="Email"
               required
+              ref={email}
             />
           </div>
           <div className="authFormInput">
@@ -31,6 +70,7 @@ const AuthPage = () => {
               id="LogPassword"
               placeholder="Password..."
               required
+              ref={password}
             />
           </div>
 
@@ -50,7 +90,7 @@ const AuthPage = () => {
     <div className="container">
       <img src="/QuickChat.png" alt="QuickChat" />
       <div className="authWrapper">
-        <form className="authForm">
+        <form className="authForm" onSubmit={handleRegister}>
           <div className="authFormInput">
             <label htmlFor="RegEmail">Email:</label>
             <input
@@ -59,6 +99,7 @@ const AuthPage = () => {
               id="RegEmail"
               placeholder="Email"
               required
+              ref={email}
             />
           </div>
           <div className="authFormInput">
@@ -69,6 +110,7 @@ const AuthPage = () => {
               id="RegUsername"
               placeholder="Username"
               required
+              ref={username}
             />
           </div>
           <div className="authFormInput">
@@ -77,9 +119,10 @@ const AuthPage = () => {
               type="password"
               className="authInput"
               autoComplete="off"
-              id="RegConfPassword"
+              id="RegPassword"
               placeholder="Password..."
               required
+              ref={password}
             />
           </div>
           <div className="authFormInput">
@@ -88,9 +131,10 @@ const AuthPage = () => {
               type="password"
               className="authInput"
               autoComplete="off"
-              id="RegPassword"
+              id="RegConfPassword"
               placeholder="Confirm Password..."
               required
+              ref={confirmPassword}
             />
           </div>
 
