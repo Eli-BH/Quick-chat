@@ -72,7 +72,7 @@ export function registerNewUser(userInfo) {
 
     try {
       const res = await axios.post(
-        "http://localhost:3001/api/auth/register",
+        "https://quickchat-apiserver.herokuapp.com/api/auth/register",
         userInfo
       );
 
@@ -90,7 +90,7 @@ export function loginExistingUser(userInfo) {
 
     try {
       const res = await axios.post(
-        "http://localhost:3001/api/auth/login",
+        "https://quickchat-apiserver.herokuapp.com/api/auth/login",
         userInfo
       );
       dispatch(loginUserSuccess(res.data));

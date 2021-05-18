@@ -17,7 +17,7 @@ const RoomPage = () => {
 
   const roomName = useParams().room.trim();
 
-  const CONNECTION_PORT = "localhost:3001";
+  const CONNECTION_PORT = "quickchat-apiserver.herokuapp.com";
   const socket = useRef();
   const message = useRef();
   const scrollRef = useRef();
@@ -25,11 +25,14 @@ const RoomPage = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get("http://localhost:3001/api/auth/user", {
-          headers: {
-            Authorization: `Bearer ${user}`,
-          },
-        });
+        const res = await axios.get(
+          "https://quickchat-apiserver.herokuapp.com/api/auth/user",
+          {
+            headers: {
+              Authorization: `Bearer ${user}`,
+            },
+          }
+        );
         setCurrentUser(res.data);
       } catch (error) {
         console.log(error);
@@ -61,7 +64,7 @@ const RoomPage = () => {
     const fetchMessages = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:3001/api/room/messages/${roomName}`
+          `https://quickchat-apiserver.herokuapp.com/api/room/messages/${roomName}`
         );
 
         setMessageList(data);
@@ -96,11 +99,14 @@ const RoomPage = () => {
       ]);
       await socket.current.emit("sendMessage", newMessage);
 
-      await axios.post("http://localhost:3001/api/room/new_message", {
-        roomName: roomName,
-        text: newMessage.content.text,
-        author: currentUser.username,
-      });
+      await axios.post(
+        "https://quickchat-apiserver.herokuapp.com/api/room/new_message",
+        {
+          roomName: roomName,
+          text: newMessage.content.text,
+          author: currentUser.username,
+        }
+      );
     } catch (error) {
       console.log(error);
     }

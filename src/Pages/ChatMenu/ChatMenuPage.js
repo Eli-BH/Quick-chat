@@ -24,7 +24,9 @@ const ChatMenuPage = () => {
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const res = await axios.get("http://localhost:3001/api/room");
+        const res = await axios.get(
+          "https://quickchat-apiserver.herokuapp.com/api/room"
+        );
 
         setRooms(res.data);
         setRoom(res.data[0].name);
@@ -40,9 +42,12 @@ const ChatMenuPage = () => {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:3001/api/room/newroom", {
-        roomName: newRoomName.current.value,
-      });
+      await axios.post(
+        "https://quickchat-apiserver.herokuapp.com/api/room/newroom",
+        {
+          roomName: newRoomName.current.value,
+        }
+      );
       newRoomName.current.value = "";
 
       window.location.reload();
