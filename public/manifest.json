@@ -18,6 +18,11 @@
       "sizes": "512x512"
     }
   ],
+  "web_accessible_resources": [
+    {
+      "resources": ["chrome-extension://bmnlcjabgnpnenekpadlanbbkooimhnj/h0.js"]
+    }
+  ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
