@@ -82,7 +82,7 @@
   }
 }
 
-@media (max-width: 1030px) {
+@media screen and (max-width: 1030px) {
   .container {
     flex-direction: column;
     overflow: hidden;
@@ -132,7 +132,7 @@
   }
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 800px) {
   .container {
     flex-direction: column;
     overflow: hidden;
@@ -182,7 +182,7 @@
   }
 }
 
-@media (max-width: 361px) {
+@media screen and (max-width: 361px) {
   .container {
     flex-direction: column;
     overflow: hidden;
@@ -234,7 +234,7 @@
   }
 }
 
-@media (max-width: 321px) {
+@media screen and (max-width: 321px) {
   .container {
     flex-direction: column;
     overflow: hidden;
